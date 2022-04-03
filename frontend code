@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online Book Store</title>
+    
+    <script
+      src="https://code.jquery.com/jquery-2.2.0.min.js"
+      type="text/javascript"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/responsive.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/static/css/skdslider.css"
+    />
+  </head>
+  <body>
+    <div class="pre_loader gray_bg text-center">
+      <div class="loader">
+        <div>
+          <div>
+            <div><div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="header-top bg-danger">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="pull-left">
+          <a href="/"
+            ><h3
+              style="font-family: Lucida Handwriting; color: rgb(13, 255, 0)"
+            >
+              Online Book Store
+            </h3></a
+          >
+        </div>
+      </div>
+      <div class="col-sm-5">
+        <form action="/search/" method="GET">
+          <div class="input-group search_box">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search Book"
+              name="q"
+              value=""
+            />
+            <button class="btn btn-info" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-4">
+        <div class="pull-right">
+          <ul class="navbar-nav">
+            
+            <li class="profile">
+              <a href="/login">Sign In</a>
+            </li>
+            <li class="cart">
+              <a href="/cart/"
+                >Cart <i class="fa fa-angle-left"></i>
+                <span class="totalcart" id="gettotalcart">
+                  0
+                </span>
+                <i class="fa fa-angle-right"></i>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+
+
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2"><ul class="list-group list-group-flush">
+  <li class="list-group-item"><h5>Category</h5></li>
+  
+  <li class="list-group-item">
+    <a href="/category/1">Computer Science</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/2">Sci-Fi &amp; Fantasy</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/3">Arts &amp; Photography</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/4">Business &amp; Money</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/5">Mystery &amp; Suspense</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/6">CookBooks &amp; Food</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/7">Literature &amp; Fiction</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/8">History</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/9">Kids Comics</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/10">Romance</a>
+  </li>
+  
+  <li class="list-group-item">
+    <a href="/category/11">Biographies &amp; Memories</a>
+  </li>
+  
+</ul>
+</div>
+        <div class="col-sm-10">
+			<div class="row">
+				<div class="col-sm-12">
+					<div style="margin:0 auto;">
+						<ul id="demo3">
+							
+							<li><img height="100" src="/media/slide/bg.jpg"/></li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-12">
+					<div class="titleheader">
+						<h3 class="h2header text-center">New Published Book</h3>
+						<a href="#">See All</a>
+					</div>
+					<div class="regulara sliderzx">
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio4.jpg"/>
+							</div>
+							<a href="/book/54">Educated</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="54">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio3.jpg"/>
+							</div>
+							<a href="/book/53">Greenlights</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱6000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="53">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio2.jpg"/>
+							</div>
+							<a href="/book/52">Becoming</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="52">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio1.jpg"/>
+							</div>
+							<a href="/book/51">Untamed</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="51">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/sapiens2.jpg"/>
+							</div>
+							<a href="/book/50">The Guns of August</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="50">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/sapiens1.jpg"/>
+							</div>
+							<a href="/book/49">Sapiens</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱4000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="49">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom2.jpg"/>
+							</div>
+							<a href="/book/48">Julia Quinn</a>
+							<a href="/writer/3">Kimmy Matillano</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="48">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom4.jpg"/>
+							</div>
+							<a href="/book/47">Fifty Shades of Grey</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱10000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="47">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom3.jpg"/>
+							</div>
+							<a href="/book/46">The Hating game</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="46">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom1.jpg"/>
+							</div>
+							<a href="/book/45">People we Meet on Vacation</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱4000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="45">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics4.jpg"/>
+							</div>
+							<a href="/book/44">The Troll</a>
+							<a href="/writer/1">Grace Patulada</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱6000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="44">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics3.jpg"/>
+							</div>
+							<a href="/book/43">Nimona</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="43">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics2.jpg"/>
+							</div>
+							<a href="/book/42">Dog Man</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱2000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="42">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics1.jpg"/>
+							</div>
+							<a href="/book/41">Cat Kid</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="41">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/history4.jpg"/>
+							</div>
+							<a href="/book/40">Caste the origin of discontent</a>
+							<a href="/writer/3">Kimmy Matillano</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱2090</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="40">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="titleheader">
+						<h3 class="h2header text-center">Top Selling Book</h3>
+					</div>
+					<div class="regulara sliderzx">
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio4.jpg"/>
+							</div>
+							<a href="/book/54">Educated</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="54">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio3.jpg"/>
+							</div>
+							<a href="/book/53">Greenlights</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱6000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="53">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio2.jpg"/>
+							</div>
+							<a href="/book/52">Becoming</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="52">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/bio1.jpg"/>
+							</div>
+							<a href="/book/51">Untamed</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="51">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/sapiens2.jpg"/>
+							</div>
+							<a href="/book/50">The Guns of August</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="50">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/sapiens1.jpg"/>
+							</div>
+							<a href="/book/49">Sapiens</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱4000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="49">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom2.jpg"/>
+							</div>
+							<a href="/book/48">Julia Quinn</a>
+							<a href="/writer/3">Kimmy Matillano</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="48">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom4.jpg"/>
+							</div>
+							<a href="/book/47">Fifty Shades of Grey</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱10000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="47">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom3.jpg"/>
+							</div>
+							<a href="/book/46">The Hating game</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱3000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="46">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/rom1.jpg"/>
+							</div>
+							<a href="/book/45">People we Meet on Vacation</a>
+							<a href="/writer/2">Saxon Ong</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱4000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="45">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics4.jpg"/>
+							</div>
+							<a href="/book/44">The Troll</a>
+							<a href="/writer/1">Grace Patulada</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱6000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="44">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics3.jpg"/>
+							</div>
+							<a href="/book/43">Nimona</a>
+							<a href="/writer/4">Adrian Mercurio</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="43">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics2.jpg"/>
+							</div>
+							<a href="/book/42">Dog Man</a>
+							<a href="/writer/5">Niko Curaza</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱2000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="42">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/comics1.jpg"/>
+							</div>
+							<a href="/book/41">Cat Kid</a>
+							<a href="/writer/6">Jude Angel Suares</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱5000</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="41">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+						<div class="book-wrapper text-center">
+							<div class="coverpage">
+								<img src="/media/coverpage/history4.jpg"/>
+							</div>
+							<a href="/book/40">Caste the origin of discontent</a>
+							<a href="/writer/3">Kimmy Matillano</a>
+							<div class="rating">
+								<span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span> <span class='fa fa-star checked'></span>
+								<span class="totalrating">0</span>
+							</div>
+							<p> ₱2090</p>
+							<button class="btn btn-danger" id="addTocart" data-book-id="40">
+									<i class="fa fa-shopping-cart""></i>Add to cart
+								</button>
+						</div>
+						
+					</div>
+				</div>
+			</div> 
+			</div>
+      </div>
+    </div>
+    <div id="snackbar"></div>
+
+    
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-md-4 col-xs-12 footer_menu">
+        <h3>Contact</h3>
+        <ul>
+          <li class="footer_contact">
+            <i class="fa fa-phone"></i>
+            <p>0912*******</p>
+          </li>
+          <li class="footer_contact">
+            <i class="fa fa-envelope"></i>
+            <p>admin@gmail.com</p>
+          </li>
+          <li class="footer_contact">
+            <i class="fa fa-map-marker"></i>
+            <p>Locations</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-xs-12 footer_menu">
+        <h3>Menu</h3>
+        <ul>
+          <li class="footer_menu">
+            <a href="/books"
+              ><i class="fa fa-angle-right"></i>Books</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-md-4 col-xs-12 footer_news">
+        <h3>Online Book store</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.js"
+      type="text/javascript"
+    ></script>
+    <script src="/static/js/skdslider.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.2.1/readmore.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://www.google-analytics.com/analytics.js"
+      type="text/javascript"
+    ></script>
+    <script src="/static/js/main.js"></script>
+    
+  </body>
+</html>
