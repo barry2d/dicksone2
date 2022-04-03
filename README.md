@@ -1,7 +1,7 @@
 # dicksone2
 to access download and unzip or extract the bookshop folder
 both backend and frontend depend on each other 
-front end was written in python, while backend was written in java/html
+front end was written in python, while backend was written in html
 
 follow these steps to run the program:
 
